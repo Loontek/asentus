@@ -1,0 +1,139 @@
+$ff: Hind;
+
+.header {
+	z-index: 1111;
+	position: sticky;
+	top: 0;
+	background-color: var(--first-color);
+	height: 122px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 2px solid #67676B;
+
+	&__body {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		width: 100%;
+		max-width: var(--max-width);
+		height: 100%;
+		padding: 0 241px 0 230px;
+		z-index: 1111;
+
+		@media all and (max-width:1200px) {
+			padding: 0 100px 0 100px;
+		}
+
+		@media all and (max-width:600px) {
+			padding: 0 30px 0 30px;
+		}
+	}
+
+	&__menu-btn {
+		display: none;
+
+		+label {
+			display: none;
+
+			@media all and (max-width:950px) {
+				display: block;
+			}
+		}
+
+		+label::before {
+			content: url('@img/bars-solid.svg');
+			display: block;
+			width: 30px;
+			height: 30px;
+			transition-duration: .5s;
+		}
+
+		&:checked+label::before {
+			transform: rotate(90deg);
+			// transform: translateX(-20px);
+		}
+
+		&:checked+label~.header-menu {
+			// transform: scaleY(1);
+			top: 122px;
+		}
+	}
+
+}
+
+.header-menu {
+
+	ul {
+		display: flex;
+
+		@media all and (max-width:950px) {
+			flex-direction: column;
+			width: 100%;
+			height: 100%;
+			justify-content: space-between;
+			align-items: center;
+		}
+	}
+
+	&__item {
+		margin-right: 50px;
+
+		&:last-child {
+			margin: 0;
+		}
+
+		@media all and (max-width:950px) {
+			margin: 0;
+		}
+	}
+
+	&__link {
+		display: block;
+		font-family: $ff;
+		font-weight: 900;
+		font-size: 16px;
+		color: var(--second-color);
+		text-transform: uppercase;
+		position: relative;
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: calc(50% - 4px);
+			left: -20px;
+			width: 12px;
+			height: 4px;
+			border-radius: 2px;
+			background-color: var(--third-color);
+			transition-duration: .2s;
+			opacity: 0;
+		}
+
+		&:hover::before {
+			opacity: 1;
+		}
+
+		&:focus {
+			transform: scale(1.2);
+		}
+	}
+
+	@media all and (max-width:950px) {
+		flex-direction: column;
+		width: 100%;
+		height: 200px;
+		background-color: var(--first-color);
+		position: absolute;
+		right: 0;
+		// top: 20px;
+		top: -201px;
+		// top: 121px;
+		padding: 20px 0 20px 0;
+		outline: 1px solid var(--fourth-color);
+		transition-duration: .5s;
+		// opacity: 0;
+		// transform: scaleY(0);
+		// transform: translateX(101%);
+	}
+}

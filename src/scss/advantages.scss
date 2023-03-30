@@ -1,0 +1,193 @@
+$ff: Hind;
+
+.advantages-block {
+	background-color: var(--fifth-color);
+	width: 100%;
+	height: auto;
+	display: flex;
+	justify-content: center;
+	padding: 100px 50px 100px 50px;
+	position: relative;
+
+
+	@media all and (max-width:900px) {
+		padding: 50px 0px 50px 0px;
+		overflow: hidden;
+	}
+
+	&__btn {
+		display: none;
+
+		+label::before {
+			content: '';
+			display: none;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			background-color: transparent;
+			outline: 2px solid var(--first-color);
+			position: absolute;
+			bottom: 10%;
+			left: calc(50% - 70px);
+			transition: all .2s ease;
+
+			@media all and (max-width:900px) {
+				display: block;
+			}
+		}
+
+		&:hover+label::before {
+			background-color: var(--first-color);
+		}
+
+		&:checked+label::before {
+			background-color: var(--first-color);
+		}
+	}
+}
+
+@media all and (max-width:900px) {
+
+	#advantages-block__radio2:checked+label~.advantage-cards-container {
+		transform: translateX(-700px)
+	}
+
+	#advantages-block__radio3:checked+label~.advantage-cards-container {
+		transform: translateX(-1400px)
+	}
+
+	#advantages-block__radio4:checked+label~.advantage-cards-container {
+		transform: translateX(-2100px)
+	}
+
+	#advantages-block__radio5:checked+label~.advantage-cards-container {
+		transform: translateX(-2800px)
+	}
+
+	#advantages-block__radio6:checked+label~.advantage-cards-container {
+		transform: translateX(-3500px)
+	}
+
+	#advantages-block__radio2+label::before {
+		margin-left: 20px;
+	}
+
+	#advantages-block__radio3+label::before {
+		margin-left: 40px;
+	}
+
+	#advantages-block__radio4+label::before {
+		margin-left: 60px;
+	}
+
+	#advantages-block__radio5+label::before {
+		margin-left: 80px;
+	}
+
+	#advantages-block__radio6+label::before {
+		margin-left: 100px;
+	}
+}
+
+.advantage-cards-container {
+	width: 1200px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+
+	@media all and (max-width:900px) {
+		flex-wrap: nowrap;
+		width: 400px;
+		height: 400px;
+		transition: all .5s ease;
+	}
+
+	@media all and (max-width:600px) {
+		width: 300px;
+	}
+
+	&__card {
+		@media all and (max-width:900px) {
+			position: absolute;
+
+			&_2 {
+				right: -700px;
+			}
+
+			&_3 {
+				right: -1400px;
+			}
+
+			&_4 {
+				right: -2100px;
+			}
+
+			&_5 {
+				right: -2800px;
+			}
+
+			&_6 {
+				right: -3500px;
+			}
+		}
+
+	}
+
+}
+
+.advantage-card {
+	background-color: var(--second-color);
+	width: 400px;
+	height: 350px;
+	padding: 50px;
+	outline: 2px solid var(--fifth-color);
+
+	@media all and (max-width:600px) {
+		width: 300px;
+	}
+
+	& * {
+		transition-duration: .5s;
+	}
+
+	&__img {
+		display: block;
+		font-size: 40px;
+		color: #67676B;
+	}
+
+	&__title {
+		font-family: $ff;
+		font-weight: 900;
+		font-size: 25px;
+		color: var(--sixth-color);
+		margin: 30px 0 0 0;
+
+		@media all and (max-width:600px) {
+			font-size: 20px;
+		}
+	}
+
+	&__desc {
+		font-family: $ff;
+		font-weight: 500;
+		font-size: 16px;
+		color: var(--fourth-color);
+		line-height: 1.4;
+		margin: 20px 0 0 0;
+
+		@media all and (max-width:600px) {
+			font-size: 15px;
+		}
+	}
+
+	&:hover>&__img,
+	&:hover>&__title,
+	&:hover>&__desc {
+		transform: translateY(-50px);
+	}
+
+	&:hover>&__img {
+		opacity: 0;
+	}
+}

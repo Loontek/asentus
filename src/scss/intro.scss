@@ -1,0 +1,147 @@
+$ff: Hind;
+
+.intro-block {
+	overflow: hidden;
+	position: relative;
+
+	&__carousel-btn {
+		margin: 10px;
+		display: none;
+
+		+label {
+			display: inline-block;
+			position: absolute;
+			left: 13vw;
+			bottom: 5%;
+			z-index: 1;
+		}
+
+		&+label::before {
+			content: '';
+			display: block;
+			width: 14px;
+			height: 14px;
+			border-radius: 50%;
+			outline: 1px solid var(--second-color);
+			transition-duration: .2s;
+		}
+
+		&:checked+label::before {
+			background-color: var(--second-color);
+		}
+
+		&:focus+label::before {
+			transform: scale(1.2);
+		}
+
+		&:hover+label::before {
+			background-color: var(--second-color);
+		}
+	}
+
+	&__carousel-btn_2 {
+		+label {
+			margin: 0 0 0 20px;
+		}
+
+		&:checked+label~.slider {
+			transform: translateX(-50%);
+		}
+	}
+}
+
+.slider {
+	display: flex;
+	width: 200%;
+	height: calc(100vh - 122px);
+	transition-duration: 1s;
+
+	@media all and (max-height:600px) {
+		height: 600px;
+	}
+}
+
+.slide {
+	width: 50%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	transition-duration: 2s;
+
+	&_1 {
+		background: url('@img/1920x1080/01.jpg') center/cover no-repeat;
+	}
+
+	&_2 {
+		background: url('@img/1920x1080/02.jpg') center/cover no-repeat;
+	}
+
+	&__preview {
+		width: 75%;
+		height: 44%;
+	}
+
+	&__title {
+		font-family: $ff;
+		font-weight: 900;
+		font-size: 98px;
+		text-transform: uppercase;
+		color: var(--second-color);
+
+		@media all and (max-width:950px) {
+			font-size: 80px;
+		}
+
+		@media all and (max-width:600px) {
+			font-size: 50px;
+		}
+
+	}
+
+	&__desc {
+		width: 40%;
+		font-family: $ff;
+		font-weight: 500;
+		font-size: 20px;
+		color: var(--fourth-color);
+		margin: 35px 0 0 0;
+
+		@media all and (max-width:600px) {
+			font-size: 16px;
+		}
+	}
+
+	&__btn {
+		margin: 55px 0 0 0;
+	}
+
+	@media all and (max-width:900px) {
+		justify-content: flex-start;
+		padding: 50px 0 0 0;
+	}
+
+}
+
+.explore-btn {
+	width: 143px;
+	height: 60px;
+	background-color: transparent;
+	outline: 1px solid #67676B;
+	color: var(--second-color);
+	font-family: $ff;
+	font-weight: 900;
+	font-size: 20px;
+	transition-duration: .2s;
+
+	&:hover {
+		color: #030507;
+		background-color: var(--second-color);
+	}
+
+	&:focus {
+		background-color: var(--second-color);
+		color: #030507;
+	}
+}

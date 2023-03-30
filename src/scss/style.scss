@@ -1,0 +1,61 @@
+@import 'nullstyles';
+@import 'fonts';
+@import 'colors';
+@import 'root';
+
+$ff: Hind;
+
+body {
+	height: auto;
+}
+
+/* Header */
+@import 'header';
+/* Intrp block */
+@import 'intro';
+/* Advantages block */
+@import 'advantages';
+/* Latest products block */
+@import 'latest-products';
+/* Clients block */
+@import 'clients';
+/* Reviews block */
+@import 'reviews';
+/* Subscriptions block */
+@import 'subscriptions';
+/* Our-clients block */
+@import 'our-clients';
+/* Showcase block */
+@import 'showcase';
+/* Footer */
+@import 'footer';
+
+
+.topbtn {
+	width: 50px;
+	height: 50px;
+	background-color: #000000;
+	position: fixed;
+	right: 30px;
+	bottom: 20px;
+	opacity: .5;
+	z-index: 1111;
+	transition: all .2s ease;
+
+	&__desc {
+		height: 100%;
+		width: 100%;
+		display: inline-block;
+		line-height: 50px;
+		text-align: center;
+		color: var(--second-color);
+		text-transform: uppercase;
+		font-family: $ff;
+		font-weight: 900;
+		font-size: 18px;
+	}
+
+	&:hover {
+		opacity: .8;
+	}
+}
